@@ -48,7 +48,7 @@ export default function Movies() {
     setAllmovies([movies,movies1]);
   }  
   const handleChange = (e) => {
-    setSearch(e.target.value);
+    setSearch(e.target.value.toLowerCase());
   }
   useEffect(() => {
     fetchinfo();
@@ -80,7 +80,7 @@ export default function Movies() {
           {movies1.filter(movie=>movie.Title.toLowerCase().includes(search)).map((movie,index)=>{
             return(
             <Box key={index} className='flex w-[270px] sm:w-[300px] relative items-center justify-center border rounded-lg border-[#292929]'>
-              <Image src={movie.Poster} className='rounded-lg' alt='img' objectFit='cover' boxSize='300px' />
+              <Image src={movie.Poster} className='rounded-lg  w-[270px] sm:w-[300px] h-[270px] sm:h-[300px]' alt='img' objectFit='cover' />
               <Box className='absolute h-[270px] sm:h-[300px] rounded-lg w-[270px] sm:w-[300px] top-0 bg-[rgba(0,0,0,0.4)] z-20'></Box>
               <Box className='absolute h-[270px] sm:h-[300px] z-40 top-0 flex items-center justify-center'><Text className=' text-center text-white font-[400] text-[18px] md:text-[24px]'>{movie.Title}</Text></Box>
             </Box>
