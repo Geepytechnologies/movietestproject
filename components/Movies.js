@@ -19,29 +19,29 @@ export default function Movies() {
  
   
   const fetchinfo = async ()=>{
-    const response = await fetch('http://www.omdbapi.com?apikey=4e3b54c8&t=movie&y=2009');
+    const response = await fetch('https://www.omdbapi.com?apikey=4e3b54c8&t=movie&y=2009');
     const data = await response.json();
     setData(data);
-    const response1 = await fetch('http://www.omdbapi.com?apikey=4e3b54c8&t=movie&y=2010');
+    const response1 = await fetch('https://www.omdbapi.com?apikey=4e3b54c8&t=movie&y=2010');
     const data1 = await response1.json();
     setData1(data1);
-    const response2 = await fetch('http://www.omdbapi.com?apikey=4e3b54c8&t=movie&y=2011');
+    const response2 = await fetch('https://www.omdbapi.com?apikey=4e3b54c8&t=movie&y=2011');
     const data2 = await response2.json();
     setData2(data2);
-    const response3 = await fetch('http://www.omdbapi.com?apikey=4e3b54c8&t=movie&y=2012');
+    const response3 = await fetch('https://www.omdbapi.com?apikey=4e3b54c8&t=movie&y=2012');
     const data3 = await response3.json();
     setData3(data3);
     setMovies([data,data1,data2,data3]);
-    const response4 = await fetch('http://www.omdbapi.com?apikey=4e3b54c8&t=series&y=2010');
+    const response4 = await fetch('https://www.omdbapi.com?apikey=4e3b54c8&t=series&y=2010');
     const data4 = await response4.json();
     setData4(data4);
-    const response5 = await fetch('http://www.omdbapi.com?apikey=4e3b54c8&t=series&y=2011');
+    const response5 = await fetch('https://www.omdbapi.com?apikey=4e3b54c8&t=series&y=2011');
     const data5 = await response5.json();
     setData5(data5);
-    const response6 = await fetch('http://www.omdbapi.com?apikey=4e3b54c8&t=series&y=2012');
+    const response6 = await fetch('https://www.omdbapi.com?apikey=4e3b54c8&t=series&y=2012');
     const data6 = await response6.json();
     setData6(data6);
-    const response7 = await fetch('http://www.omdbapi.com?apikey=4e3b54c8&t=series&y=2013');
+    const response7 = await fetch('https://www.omdbapi.com?apikey=4e3b54c8&t=series&y=2013');
     const data7 = await response7.json();
     setData7(data7);
     setMovies1([data4,data5,data6,data7]);
