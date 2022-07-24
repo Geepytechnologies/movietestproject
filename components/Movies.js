@@ -1,0 +1,93 @@
+import React,{useEffect,useState} from 'react'
+import { Box, Text, Image } from '@chakra-ui/react'
+import styles from '../styles/Search.module.css'
+
+
+export default function Movies() {
+  const [search, setSearch] = useState('');
+  const [data,setData] = useState([]);
+  const [data1,setData1] = useState([]);
+  const [data2,setData2] = useState([]);
+  const [data3,setData3] = useState([]);
+  const [data4,setData4] = useState([]);
+  const [data5,setData5] = useState([]);
+  const [data6,setData6] = useState([]);
+  const [data7,setData7] = useState([]);
+  const [movies,setMovies] = useState([]);
+  const [movies1,setMovies1] = useState([]);
+  const [allmovies,setAllmovies] = useState([]);
+ 
+  
+  const fetchinfo = async ()=>{
+    const response = await fetch('http://www.omdbapi.com?apikey=4e3b54c8&t=movie&y=2009');
+    const data = await response.json();
+    setData(data);
+    const response1 = await fetch('http://www.omdbapi.com?apikey=4e3b54c8&t=movie&y=2010');
+    const data1 = await response1.json();
+    setData1(data1);
+    const response2 = await fetch('http://www.omdbapi.com?apikey=4e3b54c8&t=movie&y=2011');
+    const data2 = await response2.json();
+    setData2(data2);
+    const response3 = await fetch('http://www.omdbapi.com?apikey=4e3b54c8&t=movie&y=2012');
+    const data3 = await response3.json();
+    setData3(data3);
+    setMovies([data,data1,data2,data3]);
+    const response4 = await fetch('http://www.omdbapi.com?apikey=4e3b54c8&t=series&y=2010');
+    const data4 = await response4.json();
+    setData4(data4);
+    const response5 = await fetch('http://www.omdbapi.com?apikey=4e3b54c8&t=series&y=2011');
+    const data5 = await response5.json();
+    setData5(data5);
+    const response6 = await fetch('http://www.omdbapi.com?apikey=4e3b54c8&t=series&y=2012');
+    const data6 = await response6.json();
+    setData6(data6);
+    const response7 = await fetch('http://www.omdbapi.com?apikey=4e3b54c8&t=series&y=2013');
+    const data7 = await response7.json();
+    setData7(data7);
+    setMovies1([data4,data5,data6,data7]);
+    setAllmovies([movies,movies1]);
+  }  
+  const handleChange = (e) => {
+    setSearch(e.target.value);
+  }
+  useEffect(() => {
+    fetchinfo();
+  },[])
+ 
+  return (
+    <>
+      <Box className={styles.parent}>
+          <Box className={styles.container}>
+              <Text className={styles.text}>Search</Text>
+              <input type="text" placeholder="" onChange={handleChange} className={styles.input} />
+          </Box>
+      </Box>
+     <Box className='mb-[40px] m-[10px]'>
+       <Box className='mb-[18px] mt-[48px]'><Text className="text-[18px] md:text-[24px] font-[400] font-['DM Sans']">Movie</Text></Box>
+       <Box className='grid gap-[10px] grid-cols-1 md:grid-cols-2 lg:grid-cols-4'>
+          {movies.filter(movie=>movie.Title.toLowerCase().includes(search)).map((movie,index)=>{
+            return(
+            <Box key={index} className='flex w-[270px] sm:w-[300px] h-[270px] sm:h-[300px] relative items-center justify-center border rounded-lg border-[#292929]'>
+              <Image src={movie.Poster} className='rounded-lg w-[270px] sm:w-[300px] h-[270px] sm:h-[300px]' alt='img' objectFit='cover'  />
+              <Box className='absolute h-[270px] sm:h-[300px] rounded-lg w-[270px] sm:w-[300px] top-0 bg-[rgba(0,0,0,0.4)] z-20'></Box>
+              <Box className='absolute h-[270px] sm:h-[300px] z-40 top-0 flex items-center justify-center'><Text className=' text-center text-white font-[400] text-[18px] md:text-[24px]'>{movie.Title}</Text></Box>
+            </Box>
+            )
+          })}
+       </Box>
+       <Box className='mb-[18px] mt-[48px]'><Text className="text-[18px] md:text-[24px] font-[400] font-['DM Sans']">Series</Text></Box>
+       <Box className='grid gap-[10px] grid-cols-1 md:grid-cols-2 lg:grid-cols-4'>
+          {movies1.filter(movie=>movie.Title.toLowerCase().includes(search)).map((movie,index)=>{
+            return(
+            <Box key={index} className='flex w-[270px] sm:w-[300px] relative items-center justify-center border rounded-lg border-[#292929]'>
+              <Image src={movie.Poster} className='rounded-lg' alt='img' objectFit='cover' boxSize='300px' />
+              <Box className='absolute h-[270px] sm:h-[300px] rounded-lg w-[270px] sm:w-[300px] top-0 bg-[rgba(0,0,0,0.4)] z-20'></Box>
+              <Box className='absolute h-[270px] sm:h-[300px] z-40 top-0 flex items-center justify-center'><Text className=' text-center text-white font-[400] text-[18px] md:text-[24px]'>{movie.Title}</Text></Box>
+            </Box>
+            )
+          })}
+       </Box>
+    </Box>
+    </>
+  )
+}

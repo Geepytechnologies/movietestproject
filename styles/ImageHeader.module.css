@@ -1,0 +1,49 @@
+.container{
+    height: 550px;
+    background-image: url('../public/bg.jpg');
+    width: 100%;
+    background-size: cover;
+}
+.text{
+    color: white;
+    width: 490px;
+    height: 282px;
+    margin-left: 77px;
+    padding-top: 109px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 72px;
+    line-height: 94px;
+    letter-spacing: -0.05em;
+    font-family: 'DM Sans', sans-serif;
+}
+@media screen and (max-width: 834px){
+    .text{
+        font-size: 72px;
+        line-height: 93.74px;
+        margin-left: 0px;
+        padding-top: 0px;
+        text-align: center;
+    }
+    .container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+@media screen and (max-width: 320px){
+    .container{
+        height: 257px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .text{
+        font-size: 28px;
+        line-height: 36.46px;
+        margin-left: 0px;
+        height: 72px;
+        text-align: center;
+    }
+}
+    

@@ -1,0 +1,38 @@
+.navbar{
+    height: 140px;
+    background-color: #292929;
+    display: flex;
+    align-items: center;
+}
+.title{
+    color: #FFFFFF;
+}
+.titlecon{
+    width: 193px;
+    height: 60px;
+    margin-left: 77px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #FFFFFF;
+}
+@media screen and (max-width: 834px){
+    .navbar{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .titlecon{
+        margin-left: 0px;
+    }
+}
+@media screen and (max-width: 320px){
+    .navbar{
+        height: 67px;
+    }
+    .titlecon{
+        width: 108px;
+    }
+}
+    
+    
