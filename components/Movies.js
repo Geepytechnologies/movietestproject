@@ -1,6 +1,7 @@
 import React,{useEffect,useState} from 'react'
 import { Box, Text, Image } from '@chakra-ui/react'
 import styles from '../styles/Search.module.css'
+import {BsSearch } from "react-icons/bs"
 
 
 export default function Movies() {
@@ -55,11 +56,14 @@ export default function Movies() {
   },[])
  
   return (
-    <>
+    <Box className="">
       <Box className={styles.parent}>
-          <Box className={styles.container}>
-              <Text className={styles.text}>Search</Text>
-              <input type="text" placeholder="" onChange={handleChange} className={styles.input} />
+          <Box className="w-[90%]">
+            <Box className='flex flex-row items-center'>
+              <Text className="text-[25px] mr-[5px] font-[600] ">Search</Text>
+              <BsSearch className='text-[20px]' />
+            </Box>
+              <input type="text" placeholder="" onChange={handleChange} className="border border-[black] w-[100%] h-[40px] rounded-lg " />
           </Box>
       </Box>
      <Box className='mb-[40px] m-[10px]'>
@@ -88,6 +92,6 @@ export default function Movies() {
           })}
        </Box>
     </Box>
-    </>
+    </Box>
   )
 }

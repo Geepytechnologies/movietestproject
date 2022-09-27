@@ -1,6 +1,6 @@
 .container{
     height: 550px;
-    background-image: url('../public/bg.jpg');
+    background-image: url('../public/bg1.jpg');
     width: 100%;
     background-size: cover;
 }
