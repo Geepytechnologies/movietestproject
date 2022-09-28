@@ -3,7 +3,6 @@ import { Box, Text, Image } from '@chakra-ui/react'
 import styles from '../styles/Search.module.css'
 import {BsSearch } from "react-icons/bs"
 
-
 export default function Movies() {
   const [search, setSearch] = useState('');
   const [data,setData] = useState([]);
@@ -18,7 +17,6 @@ export default function Movies() {
   const [movies1,setMovies1] = useState([]);
   const [title, setTitle] = useState([]);
   const [title1, setTitle1] = useState([]);
- 
   
   const fetchinfo = async ()=>{
     const response = await fetch('https://www.omdbapi.com?apikey=4e3b54c8&t=movie&y=2009');
