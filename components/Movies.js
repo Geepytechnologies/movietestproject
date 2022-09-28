@@ -16,7 +16,8 @@ export default function Movies() {
   const [data7,setData7] = useState([]);
   const [movies,setMovies] = useState([]);
   const [movies1,setMovies1] = useState([]);
-  const [allmovies,setAllmovies] = useState([]);
+  const [title, setTitle] = useState([]);
+  const [title1, setTitle1] = useState([]);
  
   
   const fetchinfo = async ()=>{
@@ -46,7 +47,6 @@ export default function Movies() {
     const data7 = await response7.json();
     setData7(data7);
     setMovies1([data4,data5,data6,data7]);
-    setAllmovies([movies,movies1]);
   }  
   const handleChange = (e) => {
     setSearch(e.target.value.toLowerCase());
@@ -67,26 +67,28 @@ export default function Movies() {
           </Box>
       </Box>
      <Box className='mb-[40px] m-[10px]'>
-       <Box className='mb-[18px] mt-[48px]'><Text className="text-[18px] md:text-[24px] font-[400] font-['DM Sans']">Movie</Text></Box>
-       <Box className='grid gap-[10px] grid-cols-1 md:grid-cols-2 lg:grid-cols-4'>
+       <Box className='mb-[8px] mt-[48px]'>
+          <Text className="text-[30px] font-[700] md:text-[24px] font-[400] font-['DM Sans']">Movies</Text>
+        </Box>
+       <Box className='grid bg-[#350905] w-[100%] justify-items-center py-[20px] gap-[10px] grid-cols-1 md:grid-cols-2 lg:grid-cols-4'>
           {movies.filter(movie=>movie.Title.toLowerCase().includes(search)).map((movie,index)=>{
             return(
-            <Box key={index} className='flex w-[270px] sm:w-[300px] h-[270px] sm:h-[300px] relative items-center justify-center border rounded-lg border-[#292929]'>
-              <Image src={movie.Poster} className='rounded-lg w-[270px] sm:w-[300px] h-[270px] sm:h-[300px]' alt='img' objectFit='cover'  />
-              <Box className='absolute h-[270px] sm:h-[300px] rounded-lg w-[270px] sm:w-[300px] top-0 bg-[rgba(0,0,0,0.4)] z-20'></Box>
-              <Box className='absolute h-[270px] sm:h-[300px] z-40 top-0 flex items-center justify-center'><Text className=' text-center text-white font-[400] text-[18px] md:text-[24px]'>{movie.Title}</Text></Box>
+            <Box key={index} className='flex shadow-2xl border-2 border-white w-[270px] sm:w-[300px] h-[auto] sm:h-[300px] relative items-center justify-center'>
+              <Image src={movie.Poster} className=' w-[100%] h-[100%] ' alt='img' objectFit='cover'  />
+              <Box className='absolute h-[100%] w-[100%] top-0 bg-[rgba(0,0,0,0.4)]  '></Box>
+              <Box className='absolute h-[100%] z-40 top-0 flex items-center justify-center'><Text className=' text-center text-white font-[400] text-[18px] md:text-[24px]'>{movie.Title}</Text></Box>
             </Box>
             )
           })}
        </Box>
-       <Box className='mb-[18px] mt-[48px]'><Text className="text-[18px] md:text-[24px] font-[400] font-['DM Sans']">Series</Text></Box>
-       <Box className='grid gap-[10px] grid-cols-1 md:grid-cols-2 lg:grid-cols-4'>
+       <Box className='mb-[18px] mt-[48px]'></Box>
+       <Box className='grid bg-[#350905] w-[100%] justify-items-center py-[20px] gap-[10px] grid-cols-1 md:grid-cols-2 lg:grid-cols-4'>
           {movies1.filter(movie=>movie.Title.toLowerCase().includes(search)).map((movie,index)=>{
             return(
-            <Box key={index} className='flex w-[270px] sm:w-[300px] relative items-center justify-center border rounded-lg border-[#292929]'>
-              <Image src={movie.Poster} className='rounded-lg  w-[270px] sm:w-[300px] h-[270px] sm:h-[300px]' alt='img' objectFit='cover' />
-              <Box className='absolute h-[270px] sm:h-[300px] rounded-lg w-[270px] sm:w-[300px] top-0 bg-[rgba(0,0,0,0.4)] z-20'></Box>
-              <Box className='absolute h-[270px] sm:h-[300px] z-40 top-0 flex items-center justify-center'><Text className=' text-center text-white font-[400] text-[18px] md:text-[24px]'>{movie.Title}</Text></Box>
+            <Box key={index} className='flex shadow-2xl border-2 border-white w-[270px] sm:w-[300px] h-[auto] sm:h-[300px] relative items-center justify-center'>
+              <Image src={movie.Poster} className='w-[100%] h-[100%]' alt='img' objectFit='cover' />
+              <Box className='absolute h-[100%] w-[100%] top-0 bg-[rgba(0,0,0,0.4)]'></Box>
+              <Box className='absolute h-[100%] z-40 top-0 flex items-center justify-center'><Text className=' text-center text-white font-[400] text-[18px] md:text-[24px]'>{movie.Title}</Text></Box>
             </Box>
             )
           })}
